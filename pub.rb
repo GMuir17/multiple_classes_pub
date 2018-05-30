@@ -26,10 +26,10 @@ class Pub
     return array_of_drink_type
   end
 
-  def create_order(type_of_drink, number_to_remove)
+  def create_order(type_of_drink, number_to_remove, customers_age=18)
     order_of_drinks = []
     array_of_drink_types = create_array_of_drinks_by_type(type_of_drink)
-    return order_of_drinks if number_to_remove > array_of_drink_types.length()
+    return order_of_drinks if number_to_remove > array_of_drink_types.length() || customers_age < 18
     for drink in array_of_drink_types
       order_of_drinks.push(drink)
       return order_of_drinks if order_of_drinks.length() == number_to_remove

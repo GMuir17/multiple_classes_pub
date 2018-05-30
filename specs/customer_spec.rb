@@ -13,7 +13,8 @@ class CustomerTest < MiniTest::Test
     @pub1 = Pub.new("Chanter")
     @drinks = [drink1, drink2]
     @pub1.add_many_drinks(@drinks)
-    @customer1 = Customer.new("Gary", 20_000)
+    @customer1 = Customer.new("Gary", 20_000, 27)
+    @customer2 = Customer.new("Stuart", 20_000, 14)
   end
 
   def test_customer_has_name
@@ -40,7 +41,7 @@ class CustomerTest < MiniTest::Test
     assert_equal(2, @customer1.drinks().length())
   end
 
-  def test_buy_drinks__sufficient_drinks_and_cash
+  def test_buy_drinks__sufficient_drinks_and_cash_and_age
     @customer1.buy_drinks(@pub1, "beer", 2)
     assert_equal(2, @customer1.drinks().length())
     assert_equal(0, @pub1.drinks().length())
@@ -48,7 +49,7 @@ class CustomerTest < MiniTest::Test
     assert_equal(400, @pub1.till())
   end
 
-  def test_buy_drinks__sufficient_drinks_insufficient_cash
+  def test_buy_drinks__sufficient_drinks_and_age_insufficient_cash
     @customer1.remove_cash(20_000)
     @customer1.buy_drinks(@pub1, "beer", 2)
     assert_equal(0, @customer1.drinks().length())
@@ -57,8 +58,16 @@ class CustomerTest < MiniTest::Test
     assert_equal(0, @pub1.till())
   end
 
-  def test_buy_drinks__insufficient_drinks_sufficient_cash
+  def test_buy_drinks__insufficient_drinks_sufficient_cash_and_age
     @customer1.buy_drinks(@pub1, "beer", 3)
+    assert_equal(0, @customer1.drinks().length())
+    assert_equal(2, @pub1.drinks().length())
+    assert_equal(20_000, @customer1.wallet())
+    assert_equal(0, @pub1.till())
+  end
+
+  def test_buy_drinks__sufficient_drinks_and_cash_insufficient_age
+    @customer2.buy_drinks(@pub1, "beer", 2)
     assert_equal(0, @customer1.drinks().length())
     assert_equal(2, @pub1.drinks().length())
     assert_equal(20_000, @customer1.wallet())
