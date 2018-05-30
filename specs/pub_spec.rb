@@ -44,5 +44,10 @@ class PubTest < MiniTest::Test
     assert_equal(2, array_of_beers.length())
   end
 
+  def test_add_cash_to_till__add
+    @pub1.add_or_remove_cash(10)
+    assert_equal(10, @pub1.till())
+  end
+
 
 end

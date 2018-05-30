@@ -1,6 +1,6 @@
 class Pub
 
-  attr_reader(:name, :drinks)
+  attr_reader(:name, :till, :drinks)
 
   def initialize(name)
     @name = name
@@ -38,6 +38,10 @@ class Pub
         return
       end
     end
+  end
+
+  def add_or_remove_cash(cash)
+    @till += cash
   end
 
 
