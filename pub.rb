@@ -35,7 +35,7 @@ class Pub
         for drink in array_of_wanted_drinks
           @drinks.delete(drink)
         end
-        return
+        return array_of_wanted_drinks
       end
     end
   end
