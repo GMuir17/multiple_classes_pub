@@ -42,10 +42,10 @@ class CustomerTest < MiniTest::Test
 
   def test_buy_drinks__sufficient_drinks_and_cash
     @customer1.buy_drinks(@pub1, "beer", 2)
-    assert_equal(19_600, @customer1.wallet())
-    assert_equal(400, @pub1.till())
     assert_equal(2, @customer1.drinks().length())
     assert_equal(0, @pub1.drinks().length())
+    assert_equal(19_600, @customer1.wallet())
+    assert_equal(400, @pub1.till())
   end
 
 
