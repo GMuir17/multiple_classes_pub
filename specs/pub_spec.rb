@@ -49,5 +49,8 @@ class PubTest < MiniTest::Test
     assert_equal(10, @pub1.till())
   end
 
-
+  def test_add_cash_to_till__remove
+    @pub1.add_or_remove_cash(-10)
+    assert_equal(-10, @pub1.till())
+  end
 end
