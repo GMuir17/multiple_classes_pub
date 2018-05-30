@@ -16,6 +16,16 @@ class Pub
     @drinks.concat(array_of_drinks)
   end
 
+  def create_array_of_drinks_by_type(type_of_drink)
+    array_of_wanted_drinks = []
+    for drink in @drinks
+      if type_of_drink == drink.type()
+        array_of_wanted_drinks.push(drink)
+      end
+    end
+    return array_of_wanted_drinks
+  end
+
   def remove_drink(drink_type,number_to_remove)
     count = 0
     array_of_wanted_drinks = []

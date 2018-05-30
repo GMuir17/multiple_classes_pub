@@ -37,4 +37,11 @@ class PubTest < MiniTest::Test
     assert_equal(1, @pub1.drinks().length())
   end
 
+  def test_list_of_a_type_of_drink_in_pub__has_type
+    drinks = [@drink1, @drink2]
+    @pub1.add_many_drinks(drinks)
+    array_of_beers = @pub1.create_array_of_drinks_by_type("beer")
+    assert_equal(2, array_of_beers.length())
+  end
+
 end
