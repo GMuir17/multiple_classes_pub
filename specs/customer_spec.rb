@@ -8,6 +8,7 @@ class CustomerTest < MiniTest::Test
   def setup
     drink1 = Drink.new(1,200,"beer")
     drink2 = Drink.new(2,200,"beer")
+    @drink3 = Drink.new(3,200,"beer")
 
     @pub1 = Pub.new("Chanter")
     drinks = [drink1, drink2]
@@ -27,6 +28,11 @@ class CustomerTest < MiniTest::Test
   def test_remove_cash_from_wallet__insufficient_funds
       @customer1.remove_cash(30)
       assert_equal(20, @customer1.wallet())
+  end
+
+  def test_add_drink_to_customer
+    @customer1.add_drink(@drink3)
+    assert_equal(1, @customer1.drinks().length())
   end
 
 end

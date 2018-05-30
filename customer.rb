@@ -13,4 +13,8 @@ class Customer
     @wallet -= cash
   end
 
+  def add_drink(drink)
+    @drinks.push(drink)
+  end
+
 end
