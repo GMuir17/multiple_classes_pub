@@ -19,4 +19,10 @@ class PubTest < MiniTest::Test
     assert_equal(0, @pub1.drinks().length())
   end
 
+  def test_adding_drink_to_pub
+    @pub1.add_drink(@drink1)
+    assert_equal([@drink1], @pub1.drinks())
+  end
+
+
 end
