@@ -26,18 +26,24 @@ class Pub
     return array_of_drink_type
   end
 
-  def remove_drink(type_of_drink, number_to_remove)
-    array_of_wanted_drinks = []
+  def create_order(type_of_drink, number_to_remove)
+    order_of_drinks = []
     array_of_drink_types = create_array_of_drinks_by_type(type_of_drink)
     for drink in array_of_drink_types
-      array_of_wanted_drinks.push(drink)
-      if array_of_wanted_drinks.length() == number_to_remove
-        for drink in array_of_wanted_drinks
-          @drinks.delete(drink)
-        end
-        return array_of_wanted_drinks
-      end
+      order_of_drinks.push(drink)
+      return order_of_drinks if order_of_drinks.length() == number_to_remove
     end
+  end
+
+  def remove_many_drinks(array_of_drinks)
+    for drink in array_of_drinks
+      @drinks.delete(drink)
+    end
+  end
+
+  def remove_order_from_stock(type_of_drink, number_to_remove)
+    order_of_drinks = create_order(type_of_drink, number_to_remove)
+    remove_many_drinks(order_of_drinks)
   end
 
   def add_or_remove_cash(cash)

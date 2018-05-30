@@ -9,7 +9,7 @@ class Customer
   end
 
   def remove_cash(cash)
-    return if @wallet < cash
+    return false if @wallet < cash
     @wallet -= cash
   end
 

@@ -33,7 +33,7 @@ class PubTest < MiniTest::Test
   def test_removes_type_drink__sufficient_beers
     drinks = [@drink1, @drink2]
     @pub1.add_many_drinks(drinks)
-    @pub1.remove_drink("beer",1)
+    @pub1.remove_order_from_stock("beer",1)
     assert_equal(1, @pub1.drinks().length())
   end
 
