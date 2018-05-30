@@ -12,5 +12,9 @@ class Pub
     @drinks.push(drink)
   end
 
+  def add_many_drinks(array_of_drinks)
+    @drinks.concat(array_of_drinks)
+  end
+
 
 end

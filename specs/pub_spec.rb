@@ -24,5 +24,10 @@ class PubTest < MiniTest::Test
     assert_equal([@drink1], @pub1.drinks())
   end
 
+  def test_adding_many_drinks
+    drinks = [@drink1, @drink2]
+    @pub1.add_many_drinks(drinks)
+    assert_equal(2, @pub1.drinks().length())
+  end
 
 end
