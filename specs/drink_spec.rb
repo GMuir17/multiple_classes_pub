@@ -7,7 +7,7 @@ class DrinkTest < MiniTest::Test
     @drink1 = Drink.new(1,200,"beer")
   end
 
-  def test_drink_has_name
+  def test_drink_has_type
     assert_equal("beer", @drink1.type())
   end
 
