@@ -44,4 +44,5 @@ class PubTest < MiniTest::Test
     assert_equal(2, array_of_beers.length())
   end
 
+
 end

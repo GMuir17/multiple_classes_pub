@@ -17,24 +17,21 @@ class Pub
   end
 
   def create_array_of_drinks_by_type(type_of_drink)
-    array_of_wanted_drinks = []
+    array_of_drink_type = []
     for drink in @drinks
       if type_of_drink == drink.type()
-        array_of_wanted_drinks.push(drink)
+        array_of_drink_type.push(drink)
       end
     end
-    return array_of_wanted_drinks
+    return array_of_drink_type
   end
 
-  def remove_drink(drink_type,number_to_remove)
-    count = 0
+  def remove_drink(type_of_drink, number_to_remove)
     array_of_wanted_drinks = []
-    for drink in @drinks
-      if drink_type == drink.type()
-        array_of_wanted_drinks.push(drink)
-        count += 1
-      end
-      if count == number_to_remove
+    array_of_drink_types = create_array_of_drinks_by_type(type_of_drink)
+    for drink in array_of_drink_types
+      array_of_wanted_drinks.push(drink)
+      if array_of_wanted_drinks.length() == number_to_remove
         for drink in array_of_wanted_drinks
           @drinks.delete(drink)
         end
@@ -42,5 +39,6 @@ class Pub
       end
     end
   end
+
 
 end
