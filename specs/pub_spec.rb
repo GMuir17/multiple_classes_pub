@@ -30,4 +30,11 @@ class PubTest < MiniTest::Test
     assert_equal(2, @pub1.drinks().length())
   end
 
+  def test_removes_type_drink__sufficient_beers
+    drinks = [@drink1, @drink2]
+    @pub1.add_many_drinks(drinks)
+    @pub1.remove_drink("beer",1)
+    assert_equal(1, @pub1.drinks().length())
+  end
+
 end
