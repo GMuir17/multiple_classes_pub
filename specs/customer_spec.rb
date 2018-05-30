@@ -11,8 +11,8 @@ class CustomerTest < MiniTest::Test
     @drink3 = Drink.new(3,200,"beer")
 
     @pub1 = Pub.new("Chanter")
-    drinks = [drink1, drink2]
-    @pub1.add_many_drinks(drinks)
+    @drinks = [drink1, drink2]
+    @pub1.add_many_drinks(@drinks)
     @customer1 = Customer.new("Gary", 20)
   end
 
@@ -33,6 +33,11 @@ class CustomerTest < MiniTest::Test
   def test_add_drink_to_customer
     @customer1.add_drink(@drink3)
     assert_equal(1, @customer1.drinks().length())
+  end
+
+  def test_add_many_drinks
+    @customer1.add_many_drinks(@drinks)
+    assert_equal(2, @customer1.drinks().length())
   end
 
 end
