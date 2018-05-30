@@ -24,7 +24,7 @@ class Customer
   def buy_drinks(pub, type_of_drink, number_of_drinks)
     cash_to_exchange = 0
     order_of_drinks = pub.create_order(type_of_drink, number_of_drinks)
-    return if !order_of_drinks
+    return if order_of_drinks.length() == 0
     for drink in order_of_drinks
       cash_to_exchange += drink.price()
     end
