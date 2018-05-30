@@ -15,5 +15,8 @@ class PubTest < MiniTest::Test
     assert_equal("Chanter", @pub1.name())
   end
 
+  def test_number_of_drinks__no_drinks
+    assert_equal(0, @pub1.drinks().length())
+  end
 
 end
